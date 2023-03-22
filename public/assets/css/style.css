@@ -1,0 +1,477 @@
+.box-globlex {
+    background-image: linear-gradient(90deg, #03aaff, #3a63ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.box-register {
+    background-image: linear-gradient(90deg, #03aaff, #3a63ff);
+}
+
+.box-register1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.text-head {
+    margin-top: 100px;
+    text-align: center;
+    color: #0af54c;
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+.text-head-home {
+    margin-top: 50px;
+    text-align: center;
+    color: #0af54c;
+    font-size: 50px;
+}
+
+.button-box-globlex {
+    margin-top: -20px;
+    margin-bottom: 100px;
+}
+
+.text-usernamer {
+    margin-top: 15px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.text-point {
+    margin-top: -10px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 23px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ffffff !important;
+    background-color: unset !important;
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+input::placeholder {
+    color: #fff !important;
+}
+
+
+.box-row {
+    position: relative;
+}
+
+.box-row input {
+    padding-left: 30px;
+    /* เปลี่ยนค่าตามที่ต้องการ */
+}
+
+.box-row input::placeholder {
+    padding-left: 3px;
+    /* เปลี่ยนค่าตามที่ต้องการ */
+}
+
+.icon-input {
+    margin-left: 10px;
+    color: #ffffff;
+    font-size: 50px;
+    margin-top: 8px;
+    position: absolute;
+    float: left;
+}
+
+.button {
+    width: 100%;
+    margin-top: 40px;
+    background-color: #03aaff;
+    border: none;
+    color: white;
+    border-radius: 50px;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button-home {
+
+    width: 100%;
+    background-color: #03aaff;
+    border: none;
+    color: white;
+    border-radius: 50px;
+    /*     height: 70px; */
+    padding: 10px 10px;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* จัดตำแหน่งอยู่กลาง */
+    height: 100px;
+    align-items: center;
+    /* จัดให้เส้น baseline เท่ากัน */
+}
+
+.text-monye {
+    margin-top: 20px;
+    padding: 100px -10px;
+    color: white !important;
+    text-decoration: none;
+}
+
+
+.button-home1 {
+    width: 100%;
+    background-color: #3a63ff;
+    border: none;
+    color: white;
+    border-radius: 50px;
+    padding: 10px 10px;
+    text-align: center;
+    margin-left: 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+.re-name {
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+}
+
+.re-pass {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
+
+.a-text {
+    text-decoration: none;
+}
+
+.a-color {
+    margin-left: -7px;
+    color: rgb(0, 0, 0);
+}
+
+.icon-back {
+    position: absolute;
+    color: #ffffff;
+    margin-left: 20px;
+}
+
+.register-head {
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.back {
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    float: left;
+}
+
+.hr {
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.hr2 {
+    border-bottom: 1px solid #ffffff;
+}
+
+.hr3 {
+    margin-top: -10px;
+    border-bottom: 2px solid #a8a8a85e;
+}
+
+.register-box {
+    /*     display: flex;
+    flex-direction: row-reverse; */
+    position: relative;
+}
+
+.text-name {
+    position: absolute;
+    margin-top: 5px;
+    color: #ffffff !important;
+}
+
+.create_point {
+    position: absolute;
+    margin-top: 5px;
+    color: black !important;
+}
+
+.input-name {
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.register-box .form-control {
+    margin-top: 10px;
+    margin-left: 100px;
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ffffff !important;
+    background-color: unset !important;
+    background-clip: padding-box;
+    border: 0px !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.register-box .form-control:focus {
+    margin-top: 10px;
+    margin-left: 100px;
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ffffff !important;
+    background-color: unset !important;
+    background-clip: padding-box;
+    border: 0px !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-form-control-bg);
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.register-box input::placeholder {
+    color: rgba(193, 193, 193, 0.632) !important;
+}
+
+.re-login {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+.button-home-flex {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.button-home-mony {
+
+    flex-direction: row-reverse;
+}
+
+.circle-box {
+    z-index: 0;
+    margin-top: 120px;
+}
+
+.circle {
+    margin-top: -170px;
+    position: absolute;
+    width: 200px;
+    opacity: 0.5;
+    z-index: 0;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    border: solid 5px rgb(255, 255, 255);
+    border-radius: 100%;
+}
+
+.circle1 {
+    margin-left: 100px;
+    margin-top: -180px;
+    position: absolute;
+    width: 200px;
+    opacity: 0.4;
+    z-index: 0;
+    height: 200px;
+    background-color: rgb(255, 91, 91);
+    border: solid 5px rgb(255, 255, 255);
+    border-radius: 100%;
+}
+
+.circle2 {
+    position: absolute;
+    margin-left: -50px;
+    margin-top: -200px;
+    width: 200px;
+    opacity: 0.4;
+    z-index: 0;
+    height: 200px;
+    background-color: rgb(255, 0, 0);
+    border: solid 5px rgb(255, 255, 255);
+    border-radius: 100%;
+}
+
+.button-circle1 {
+    margin-top: -170px;
+    position: relative;
+    justify-content: space-between;
+}
+
+.box-home-logout {
+    position: absolute;
+    z-index: 3;
+    margin-top: -60px;
+    height: 100%;
+    padding: 16px;
+    width: 100%;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+.customer-home {
+    margin-left: 20px;
+}
+
+.icon-home {
+    color: #03aaff;
+    margin-right: 20px;
+}
+
+.customer-div-home {
+    display: flex;
+    flex-direction: row;
+}
+
+.out-home {
+    margin-left: -5px;
+    margin-bottom: 20px;
+}
+
+.box-create_point {
+    color: #000;
+}
+
+.box-create_point input::placeholder {
+    color: #000 !important;
+}
+
+.box-create_point .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000 !important;
+    background-color: unset !important;
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.customer-div-home .form-control {
+    margin-top: -15px;
+    /*     margin-left: 10px; */
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000000 !important;
+    background-color: unset !important;
+    background-clip: padding-box;
+    border: 0px !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.customer-div-home input::placeholder {
+    color: rgba(144, 144, 144, 0.451) !important;
+}
+
+.text-name-home {
+    color: #000 !important;
+    width: 150px;
+}
+
+.error-input1 {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.secondary-text {
+    color: #03aaff;
+}
+
+.danger-text {
+    color: red;
+}
+
+.success-text {
+    color: rgb(19, 205, 13);
+}
+
+.number-cir {
+    margin-top: -20px;
+    margin-left: 15px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    background-color: red;
+}
+
+.mess {
+    text-align: center;
+    color: #fff;
+}
