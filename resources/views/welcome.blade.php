@@ -8,7 +8,7 @@
 <body class="box-globlex">
     <div class="col-10 col-md-3">
         <h1 class="text-head">Globlex</h1>
-        <div class="mb-3">
+        <div class="mb-3 ">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="box-row">

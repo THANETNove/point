@@ -23,7 +23,7 @@
                                     {{--                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         email</th> --}}
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-3">
                                         จำนวนเงิน</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
                                         เติมเงิน</th>
@@ -57,8 +57,48 @@
                                                 {{ number_format($data->point) }}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0 success-text">
-                                                {{ number_format($data->point) }}</p>
+                                            {{-- <form role="form" class="text-start" method="POST"
+                                                action="{{ 'add-bank_name' }}">
+                                                @csrf
+                                                <div class="input-group input-group-outline my-3">
+                                                    <input type="number"
+                                                        class="form-control  @error('add_poit') is-invalid @enderror"
+                                                        name="add_poit" placeholder="เติมเงิน" required>
+                                                    @error('add_poit')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="c">
+                                                    <button type="submit"
+                                                        class="btn bg-gradient-primary w-100 my-4 mb-2">บันทึก</button>
+                                                </div>
+
+                                            </form> --}}
+                                            <div class="row">
+                                                <div class="col-12 col-md-8">
+                                                    <form role="form" class="text-start" method="POST"
+                                                        action="{{ url('admin-add-ponint-user', $data->id) }}">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class=" my-3 customer-point">
+                                                            <input type="number"
+                                                                class="form-control  @error('add_poit') is-invalid @enderror"
+                                                                name="add_poit" placeholder="เติมเงิน" required>
+                                                            @error('add_poit')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                </div>
+                                                <div class="col-12 col-md-3">
+                                                    <button type="submit"
+                                                        class="btn bg-gradient-primary w-100 my-3 mb-2">บันทึก</button>
+                                                </div>
+
+                                            </div>
                                         </td>
                                         <td>
                                             @if ($data->ststus_point == 'on')

@@ -83,6 +83,24 @@ class AllUsersController extends Controller
         return redirect('all-user')->with('message', $data );
     }
 
+
+    public function updatePonit(Request $request, string $id)
+    {
+
+        $user = User::find($id);
+        $point = $user->point;
+        if ($point > 0) {
+            $user->point = $point + $request['add_poit'];
+        }else{
+            
+            $user->point =  $request['add_poit'];
+        
+        }
+        $user->save();
+
+        return redirect('all-user')->with('message', "เติมเงินโบนัสให้ $user->username เรียบร้อย" );
+    }
+
     /**
      * Remove the specified resource from storage.
      */
