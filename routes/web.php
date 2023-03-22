@@ -83,3 +83,4 @@ Route::put('/update-bank_name_user/{id}', [BankNameUserController::class, 'updat
 Route::get('/all-user', [AllUsersController::class, 'index']);
 Route::put('/update-ststus_point/{id}', [AllUsersController::class, 'update']);
 Route::put('/admin-add-ponint-user/{id}', [AllUsersController::class, 'updatePonit']);
+Route::get('/bonus', [AllUsersController::class, 'bonus']);

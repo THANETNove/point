@@ -25,8 +25,7 @@
                                         email</th> --}}
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-3">
                                         จำนวนเงิน</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
-                                        เติมเงิน</th>
+
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         สถานะ</th>
@@ -56,51 +55,7 @@
                                             <p class="text-xs font-weight-bold mb-0 success-text">
                                                 {{ number_format($data->point) }}</p>
                                         </td>
-                                        <td>
-                                            {{-- <form role="form" class="text-start" method="POST"
-                                                action="{{ 'add-bank_name' }}">
-                                                @csrf
-                                                <div class="input-group input-group-outline my-3">
-                                                    <input type="number"
-                                                        class="form-control  @error('add_poit') is-invalid @enderror"
-                                                        name="add_poit" placeholder="เติมเงิน" required>
-                                                    @error('add_poit')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="c">
-                                                    <button type="submit"
-                                                        class="btn bg-gradient-primary w-100 my-4 mb-2">บันทึก</button>
-                                                </div>
-
-                                            </form> --}}
-                                            <div class="row">
-                                                <div class="col-12 col-md-8">
-                                                    <form role="form" class="text-start" method="POST"
-                                                        action="{{ url('admin-add-ponint-user', $data->id) }}">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <div class=" my-3 customer-point">
-                                                            <input type="number"
-                                                                class="form-control  @error('add_poit') is-invalid @enderror"
-                                                                name="add_poit" placeholder="เติมเงิน" required>
-                                                            @error('add_poit')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                        </div>
-                                                </div>
-                                                <div class="col-12 col-md-3">
-                                                    <button type="submit"
-                                                        class="btn bg-gradient-primary w-100 my-3 mb-2">บันทึก</button>
-                                                </div>
-
-                                            </div>
-                                        </td>
-                                        <td>
+                                        <td class="col-1">
                                             @if ($data->ststus_point == 'on')
                                                 <form role="form" class="text-start" method="POST"
                                                     action="{{ url('update-ststus_point', $data->id) }}">
@@ -125,44 +80,6 @@
                                                 </form>
                                             @endif
                                         </td>
-
-
-                                        {{--    <td class="align-middle text-center">
-                                            <div style="padding-left: 100px">
-                                                <div class="row col-10">
-                                                    <div class="col-12 col-md-6">
-                                                        <form role="form" class="text-start" method="POST"
-                                                            action="{{ url('update-withdraw_money', $data->id) }}">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <div class="mb-3 my-3" style="display:none">
-                                                                <input type="text" class="form-control" name="add_point"
-                                                                    value="{{ $data->point }}"
-                                                                    id="exampleFormControlInput1">
-                                                                <input type="text" class="form-control" name="app_rej"
-                                                                    value="approved" id="exampleFormControlInput1">
-                                                            </div>
-                                                            <button type="submit" class="btn btn-success">ถอนเงิน</button>
-                                                        </form>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <form role="form" class="text-start" method="POST"
-                                                            action="{{ url('update-withdraw_money', $data->id) }}">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <div class="mb-3 my-3" style="display:none">
-                                                                <input type="text" class="form-control" name="car_name"
-                                                                    value="{{ $data->point }}"
-                                                                    id="exampleFormControlInput1">
-                                                                <input type="text" class="form-control" name="app_rej"
-                                                                    value="reject" id="exampleFormControlInput1">
-                                                            </div>
-                                                            <button type="submit" class="btn btn-danger">ปฏิเสธ</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td> --}}
                                         <td class="align-middle text-center">
                                             <span
                                                 class="text-secondary text-xs font-weight-bold">{{ $data->created_at }}</span>

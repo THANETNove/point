@@ -23,13 +23,25 @@ class AllUsersController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {    if (Auth::user()->status == "admin" ) {
-        $data = DB::table('users')->whereNULL('status')->get();
-        return view('user_all.index',['data' => $data]);
-    }else{
-        return view('home');
+    {   
+         if (Auth::user()->status == "admin" ) {
+            $data = DB::table('users')->whereNULL('status')->get();
+            return view('user_all.index',['data' => $data]);
+        }else{
+            return view('home');
+        }
+                
     }
-        
+    
+    public function bonus()
+    {   
+         if (Auth::user()->status == "admin" ) {
+            $data = DB::table('users')->whereNULL('status')->get();
+            return view('user_all.bonus',['data' => $data]);
+        }else{
+            return view('home');
+        }
+                
     }
 
     /**
@@ -86,7 +98,7 @@ class AllUsersController extends Controller
 
     public function updatePonit(Request $request, string $id)
     {
-
+        dd("asd",$id);
         $user = User::find($id);
         $point = $user->point;
         if ($point > 0) {
@@ -96,9 +108,11 @@ class AllUsersController extends Controller
             $user->point =  $request['add_poit'];
         
         }
+
+        
         $user->save();
 
-        return redirect('all-user')->with('message', "เติมเงินโบนัสให้ $user->username เรียบร้อย" );
+        return redirect('bonus')->with('message', "เติมเงินโบนัสให้ $user->username เรียบร้อย" );
     }
 
     /**
