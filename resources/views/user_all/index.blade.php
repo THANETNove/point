@@ -38,14 +38,14 @@
                                 @php
                                     $i = 1;
                                 @endphp
-                                @foreach ($data as $data)
+                                @foreach ($data as $data1)
                                     <tr>
                                         <td>
                                             <p>{{ $i++ }}</p>
                                         </td>
                                         <td class="align-middle text-center">
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $data->username }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ $data1->username }}</span>
                                         </td>
                                         {{--                                         <td>
                                             <p class="text-xs font-weight-bold mb-0">
@@ -53,12 +53,12 @@
                                         </td> --}}
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0 success-text">
-                                                {{ number_format($data->point) }}</p>
+                                                {{ number_format($data1->point) }}</p>
                                         </td>
                                         <td class="col-1">
-                                            @if ($data->ststus_point == 'on')
+                                            @if ($data1->ststus_point == 'on')
                                                 <form role="form" class="text-start" method="POST"
-                                                    action="{{ url('update-ststus_point', $data->id) }}">
+                                                    action="{{ url('update-ststus_point', $data1->id) }}">
                                                     @csrf
                                                     @method('PUT')
                                                     <div class="mb-3 my-3" style="display:none">
@@ -69,7 +69,7 @@
                                                 </form>
                                             @else
                                                 <form role="form" class="text-start" method="POST"
-                                                    action="{{ url('update-ststus_point', $data->id) }}">
+                                                    action="{{ url('update-ststus_point', $data1->id) }}">
                                                     @csrf
                                                     @method('PUT')
                                                     <div class="mb-3 my-3" style="display:none">
@@ -82,7 +82,7 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $data->created_at }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ $data1->created_at }}</span>
                                         </td>
 
                                     </tr>
@@ -90,6 +90,7 @@
                             </tbody>
                         </table>
                     </div>
+                    {!! $data->links() !!}
                 </div>
             </div>
         </div>

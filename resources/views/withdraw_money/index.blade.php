@@ -49,22 +49,22 @@
                                 $i = 1;
                             @endphp
                             @if ($data !== null)
-                                @foreach ($data as $data)
+                                @foreach ($data as $data1)
                                     <tr>
                                         <td>
                                             <p>{{ $i++ }}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">
+                                            <p class="text-xs data1-weight-bold mb-0">
                                                 {{ number_format($data->point_low) }}
                                             </p>
                                         </td>
 
                                         <td class="align-middle text-center">
-                                            @if ($data->status == 'approved')
+                                            @if ($data1->status == 'approved')
                                                 <span class="success-text">ถอนเงินสำเร็จ
                                                     โอนเงินเข้าบัญชีเรียบร้อย</span>
-                                            @elseif($data->status == 'reject')
+                                            @elseif($data1->status == 'reject')
                                                 <span class="danger-text">ถอนเงิน
                                                     ไม่สำเร็จ</span>
                                             @else
@@ -73,7 +73,7 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $data->created_at }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ $data1->created_at }}</span>
                                         </td>
 
                                     </tr>
@@ -82,6 +82,7 @@
                         </tbody>
                     </table>
                 </div>
+                {!! $data->links() !!}
             </div>
         </div>
     </div>

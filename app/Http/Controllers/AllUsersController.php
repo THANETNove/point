@@ -25,7 +25,7 @@ class AllUsersController extends Controller
     public function index()
     {   
          if (Auth::user()->status == "admin" ) {
-            $data = DB::table('users')->whereNULL('status')->get();
+            $data = DB::table('users')->whereNULL('status')->paginate(100);
             return view('user_all.index',['data' => $data]);
         }else{
             return view('home');
@@ -36,7 +36,7 @@ class AllUsersController extends Controller
     public function bonus()
     {   
          if (Auth::user()->status == "admin" ) {
-            $data = DB::table('users')->whereNULL('status')->get();
+            $data = DB::table('users')->whereNULL('status')->paginate(100);
             return view('user_all.bonus',['data' => $data]);
         }else{
             return view('home');

@@ -33,7 +33,7 @@ class WithdrawMoneyController extends Controller
             $data = DB::table('withdraw_money')->where('id_user', Auth::user()->id)
             ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
              ->select('withdraw_money.*', 'bank_name_users.id_user', 'bank_name_users.bank_user','bank_name_users.bank_numbar_user')
-            ->orderBy('withdraw_money.id','DESC')->get();
+            ->orderBy('withdraw_money.id','DESC')->paginate(100);
             return view('withdraw_money.index',['data' => $data]);
         }else {
             $data2 = null;
