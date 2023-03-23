@@ -67,10 +67,12 @@ Route::post('/add-point', [AddPointController::class, 'store']);
 Route::put('/update-point/{id}', [AddPointController::class, 'update']);
 
 Route::get('/money-customers', [MoneyCustomersController::class, 'index']);
+Route::post('/money-customers', [MoneyCustomersController::class, 'index']);
 Route::get('/withdraw_money_customers', [WithdrawMoneyController::class, 'index']);
 Route::get('/create_withdraw_money', [WithdrawMoneyController::class, 'create']);
 Route::post('/add-withdraw_money', [WithdrawMoneyController::class, 'store']);
 Route::get('/admin-withdraw_money', [WithdrawMoneyController::class, 'indexAdmin']);
+Route::post('/admin-withdraw_money', [WithdrawMoneyController::class, 'indexAdmin']);
 Route::put('/update-withdraw_money/{id}', [WithdrawMoneyController::class, 'update']);
 
 
@@ -81,7 +83,9 @@ Route::put('/update-bank_name_user/{id}', [BankNameUserController::class, 'updat
 Route::put('/update-bank_name_user/{id}', [BankNameUserController::class, 'update']);
 
 Route::get('/all-user', [AllUsersController::class, 'index']);
+Route::post('/all-user', [AllUsersController::class, 'index']);
 Route::put('/update-ststus_point/{id}', [AllUsersController::class, 'update']);
 Route::put('/admin-add-ponint-user/{id}', [AllUsersController::class, 'updatePonit']);
 Route::get('/bonus', [AllUsersController::class, 'bonus']);
+Route::post('/bonus', [AllUsersController::class, 'bonus']);
 Route::get('/edit-bonus/{id}', [AllUsersController::class, 'show']);

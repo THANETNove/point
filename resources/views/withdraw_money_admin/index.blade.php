@@ -46,34 +46,34 @@
                                 @php
                                     $i = 1;
                                 @endphp
-                                @foreach ($data as $data)
+                                @foreach ($data as $data1)
                                     <tr>
                                         <td>
                                             <p>{{ $i++ }}</p>
                                         </td>
                                         <td class="align-middle text-center">
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $data->username }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ $data1->username }}</span>
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0 danger-text">
-                                                {{ number_format($data->point_low) }}</p>
+                                                {{ number_format($data1->point_low) }}</p>
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0 success-text">
-                                                {{ number_format($data->point) }}</p>
+                                                {{ number_format($data1->point) }}</p>
                                         </td>
 
                                         <td class="align-middle text-center">
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $data->bank_user }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ $data1->bank_user }}</span>
                                         </td>
                                         <td class="align-middle text-center">
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $data->bank_numbar_user }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ $data1->bank_numbar_user }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $data->bank }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $data1->bank }}</span>
                                         </td>
 
 
@@ -82,12 +82,12 @@
                                                 <div class="row col-10">
                                                     <div class="col-12 col-md-6">
                                                         <form role="form" class="text-start" method="POST"
-                                                            action="{{ url('update-withdraw_money', $data->id) }}">
+                                                            action="{{ url('update-withdraw_money', $data1->id) }}">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="mb-3 my-3" style="display:none">
                                                                 <input type="text" class="form-control" name="add_point"
-                                                                    value="{{ $data->point_low }}"
+                                                                    value="{{ $data1->point_low }}"
                                                                     id="exampleFormControlInput1">
                                                                 <input type="text" class="form-control" name="app_rej"
                                                                     value="approved" id="exampleFormControlInput1">
@@ -97,12 +97,12 @@
                                                     </div>
                                                     <div class="col-12 col-md-6">
                                                         <form role="form" class="text-start" method="POST"
-                                                            action="{{ url('update-withdraw_money', $data->id) }}">
+                                                            action="{{ url('update-withdraw_money', $data1->id) }}">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="mb-3 my-3" style="display:none">
                                                                 <input type="text" class="form-control" name="car_name"
-                                                                    value="{{ $data->point }}"
+                                                                    value="{{ $data1->point }}"
                                                                     id="exampleFormControlInput1">
                                                                 <input type="text" class="form-control" name="app_rej"
                                                                     value="reject" id="exampleFormControlInput1">
@@ -117,7 +117,7 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $data->created_at }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ $data1->created_at }}</span>
                                         </td>
 
                                     </tr>
@@ -125,6 +125,7 @@
                             </tbody>
                         </table>
                     </div>
+                    {!! $data->links() !!}
                 </div>
             </div>
         </div>

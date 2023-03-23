@@ -51,17 +51,28 @@ class WithdrawMoneyController extends Controller
     }
  */
 
-    public function indexAdmin()
+    public function indexAdmin(Request $request)
     {
-        if (Auth::user()->status == "admin" ) {
-        $data = DB::table('withdraw_money')->where('withdraw_money.status', 'null')
-        ->leftJoin('users', 'withdraw_money.id_user', '=', 'users.id')
-        ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
-        ->select('withdraw_money.*', 'users.username','users.point','bank_name_users.bank_user','bank_name_users.bank_numbar_user','bank_name_users.bank')
-        ->get();
-        return view('withdraw_money_admin.index' ,['data' =>$data]);
-        }else {
-            return view('home');
+        $search = $request['search'];
+        if ($search != null) {
+            $data = DB::table('withdraw_money')->where('withdraw_money.status', 'null')
+            ->leftJoin('users', 'withdraw_money.id_user', '=', 'users.id')
+            ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
+            ->select('withdraw_money.*', 'users.username','users.point','bank_name_users.bank_user','bank_name_users.bank_numbar_user','bank_name_users.bank')
+            ->where('username', 'like', "$search%")
+            ->paginate(100);
+            return view('withdraw_money_admin.index' ,['data' =>$data]);
+        }else{
+            if (Auth::user()->status == "admin" ) {
+            $data = DB::table('withdraw_money')->where('withdraw_money.status', 'null')
+            ->leftJoin('users', 'withdraw_money.id_user', '=', 'users.id')
+            ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
+            ->select('withdraw_money.*', 'users.username','users.point','bank_name_users.bank_user','bank_name_users.bank_numbar_user','bank_name_users.bank')
+            ->paginate(100);
+            return view('withdraw_money_admin.index' ,['data' =>$data]);
+            }else {
+                return view('home');
+            }
         }
     }
 

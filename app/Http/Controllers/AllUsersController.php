@@ -22,25 +22,42 @@ class AllUsersController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {   
-         if (Auth::user()->status == "admin" ) {
-            $data = DB::table('users')->whereNULL('status')->paginate(100);
-            return view('user_all.index',['data' => $data]);
-        }else{
-            return view('home');
-        }
+    public function index(Request $request)
+    {    
+         $search = $request['search'];
+
+         if ($search != null) {
+                $data = DB::table('users')->whereNULL('status')
+                ->where('username', 'like', "$search%")->paginate(100);
+                return view('user_all.index',['data' => $data]);
+            }else{
+            if (Auth::user()->status == "admin" ) {
+                $data = DB::table('users')->whereNULL('status')->paginate(100);
+                return view('user_all.index',['data' => $data]);
+            }else{
+                return view('home');
+            }
+         }
                 
     }
     
-    public function bonus()
+    public function bonus(Request $request)
     {   
+        $search = $request['search'];
+
+        if ($search != null) {
+            $data = DB::table('users')->whereNULL('status')
+            ->where('username', 'like', "$search%")->paginate(100);
+            return view('user_all.bonus',['data' => $data]);
+        }else{
+
          if (Auth::user()->status == "admin" ) {
             $data = DB::table('users')->whereNULL('status')->paginate(100);
             return view('user_all.bonus',['data' => $data]);
         }else{
             return view('home');
         }
+    }
                 
     }
 
