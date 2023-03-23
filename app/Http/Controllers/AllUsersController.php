@@ -65,7 +65,10 @@ class AllUsersController extends Controller
      */
     public function show(string $id)
     {
-        //
+
+        $data =   User::find($id);
+        return view('user_all.edit',['data' => $data]);
+  
     }
 
     /**
@@ -98,7 +101,7 @@ class AllUsersController extends Controller
 
     public function updatePonit(Request $request, string $id)
     {
-        dd("asd",$id);
+     
         $user = User::find($id);
         $point = $user->point;
         if ($point > 0) {

@@ -49,30 +49,12 @@
                                             <p class="text-xs font-weight-bold mb-0 success-text">
                                                 {{ number_format($data1->point) }}</p>
                                         </td>
-                                        <td> {{ $data1->id }}
-                                            <div class="row">
-                                                <div class="col-12 col-md-8">
-                                                    <form role="form" class="text-start" method="POST"
-                                                        action="{{ url('admin-add-ponint-user', $data1->id) }}">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <div class=" my-3 customer-point">
-                                                            <input type="number"
-                                                                class="form-control  @error('add_poit') is-invalid @enderror"
-                                                                name="add_poit" placeholder="เติมเงิน">
-                                                            @error('add_poit')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                        </div>
-                                                </div>
-                                                <div class="col-12 col-md-3">
-                                                    <button type="submit"
-                                                        class="btn bg-gradient-primary w-100 my-3 mb-2">บันทึก</button>
-                                                </div>
-
-                                            </div>
+                                        <td>
+                                            <a href="{{ url('/edit-bonus', $data1->id) }}"
+                                                class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
+                                                data-original-title="Edit user">
+                                                Edit
+                                            </a>
                                         </td>
 
 
