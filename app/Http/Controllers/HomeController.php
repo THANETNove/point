@@ -31,7 +31,7 @@ class HomeController extends Controller
             $data = DB::table('add_points')->where('add_points.status', 'null')
             ->leftJoin('users', 'add_points.id_user', '=', 'users.id')
             ->select('add_points.*', 'users.username')
-            ->get();
+            ->paginate(100);
             return view('money_customers.index',['data' => $data]);
         }else {
             return view('home');
