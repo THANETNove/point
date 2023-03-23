@@ -53,7 +53,7 @@
                                             <a href="{{ url('/edit-bonus', $data1->id) }}"
                                                 class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
                                                 data-original-title="Edit user">
-                                                Edit
+                                                เติมโบนัส
                                             </a>
                                         </td>
 
