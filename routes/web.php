@@ -86,6 +86,8 @@ Route::get('/all-user', [AllUsersController::class, 'index']);
 Route::post('/all-user', [AllUsersController::class, 'index']);
 Route::put('/update-ststus_point/{id}', [AllUsersController::class, 'update']);
 Route::put('/admin-add-ponint-user/{id}', [AllUsersController::class, 'updatePonit']);
+Route::put('/admin-delete-ponint-user/{id}', [AllUsersController::class, 'deletePonint']);
 Route::get('/bonus', [AllUsersController::class, 'bonus']);
 Route::post('/bonus', [AllUsersController::class, 'bonus']);
 Route::get('/edit-bonus/{id}', [AllUsersController::class, 'show']);
+Route::get('/delete-bonus/{id}', [AllUsersController::class, 'edit']);

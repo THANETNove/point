@@ -27,6 +27,8 @@
                                         จำนวนเงิน</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
                                         เติมเงิน</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                        ถอนเงิน</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         date</th>
@@ -54,6 +56,13 @@
                                                 class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
                                                 data-original-title="Edit user">
                                                 เติมโบนัส
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ url('/delete-bonus', $data1->id) }}"
+                                                class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
+                                                data-original-title="Edit user">
+                                                ถอนโบนัส
                                             </a>
                                         </td>
 

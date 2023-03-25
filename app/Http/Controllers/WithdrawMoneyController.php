@@ -26,14 +26,16 @@ class WithdrawMoneyController extends Controller
      * Display a listing of the resource.
      */
     public function index()  {
-       
+/*        dd("asdas"); */
         $data = DB::table('withdraw_money')->where('id_user', Auth::user()->id)->count();
 
         if ($data) {
-            $data = DB::table('withdraw_money')->where('id_user', Auth::user()->id)
-            ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
-             ->select('withdraw_money.*', 'bank_name_users.id_user', 'bank_name_users.bank_user','bank_name_users.bank_numbar_user')
+            $data = DB::table('withdraw_money')->where('withdraw_money.id_user', Auth::user()->id)
+           /*  ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
+             ->select('withdraw_money.*', 'bank_name_users.id_user', 'bank_name_users.bank_user','bank_name_users.bank_numbar_user') */
             ->orderBy('withdraw_money.id','DESC')->paginate(100);
+
+          //  dd($data );
             return view('withdraw_money.index',['data' => $data]);
         }else {
             $data2 = null;

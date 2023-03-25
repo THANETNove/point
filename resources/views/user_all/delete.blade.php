@@ -6,7 +6,7 @@
             <div class="card z-index-0 fadeIn3 fadeInBottom">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                        <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">เติมโบนัส</h4>
+                        <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">ถอนโบนัส</h4>
                     </div>
                 </div>
                 <div class="container text-center">
@@ -17,7 +17,7 @@
                         <div class="col-md-6">
                             <div class="card-body">
                                 <form role="form" class="text-start" method="POST"
-                                    action="{{ url('admin-add-ponint-user', $data->id) }}">
+                                    action="{{ url('admin-delete-ponint-user', $data->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div class="mb-3 my-3 customer-point">
@@ -31,14 +31,14 @@
                                             id="exampleFormControlInput1" placeholder="{{ $data->point }}">
                                     </div>
                                     <div class="mb-3 my-3 customer-point">
-                                        <label for="exampleFormControlInput1" class="form-label">เติมโบนัส</label>
+                                        <label for="exampleFormControlInput1" class="form-label">ถอนโบนัส</label>
                                         <input type="text" class="form-control" name="add_poit"
-                                            id="exampleFormControlInput1" placeholder="เติมโบนัส" required>
+                                            id="exampleFormControlInput1" placeholder="ถอนโบนัส" required>
                                     </div>
 
                                     <div class="text-center">
                                         <button type="submit"
-                                            class="btn bg-gradient-primary w-100 my-4 mb-2">เติมโบนัส</button>
+                                            class="btn bg-gradient-primary w-100 my-4 mb-2">ถอนโบนัส</button>
                                     </div>
 
                                 </form>

@@ -56,7 +56,7 @@
                                         </td>
                                         <td>
                                             <p class="text-xs data1-weight-bold mb-0">
-                                                {{ number_format($data->point_low) }}
+                                                {{ number_format($data1->point_low) }}
                                             </p>
                                         </td>
 

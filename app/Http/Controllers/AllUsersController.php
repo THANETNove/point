@@ -93,7 +93,8 @@ class AllUsersController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data =   User::find($id);
+        return view('user_all.delete',['data' => $data]);
     }
 
     /**
@@ -133,6 +134,26 @@ class AllUsersController extends Controller
         $user->save();
 
         return redirect('bonus')->with('message', "เติมเงินโบนัสให้ $user->username เรียบร้อย" );
+    }
+
+
+    public function deletePonint(Request $request, string $id)
+    {
+     
+        $user = User::find($id);
+        $point = $user->point;
+        if ($point > 0) {
+            $user->point = $point - $request['add_poit'];
+        }else{
+            
+            $user->point =  0;
+        
+        }
+
+        
+        $user->save();
+
+        return redirect('bonus')->with('message', "ถอนเงินโบนัสให้ $user->username เรียบร้อย" );
     }
 
     /**

@@ -25,7 +25,7 @@
     <div class="box-home-logout">
         <div class="box-register1">
             <div class="col-10 col-md-3">
-                <form role="form" class="text-start" method="POST" action="{{ 'admin-add-point-user' }}"
+                <form role="form" class="text-start" method="POST" action="{{ 'add-withdraw_money' }}"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="customer-box">
@@ -44,14 +44,14 @@
                             </h6>
                         @endif
                     </div>
-                </form>
-                <div class="hr3"></div>
-                <br>
-                @if (Auth::user()->ststus_point == 'on')
-                    <samp class="button">ยังไม่สามารถถอนเงินได้</samp>
-                @else
-                    <button type="submit" class="button">ถอนเงิน</button>
-                @endif
+                    <div class="hr3"></div>
+                    <br>
+                    @if (Auth::user()->ststus_point == 'on')
+                        <samp class="button">ยังไม่สามารถถอนเงินได้</samp>
+                    @else
+                        <button type="submit" class="button">ถอนเงิน</button>
+                    @endif
+
 
             </div>
             </form>
