@@ -313,6 +313,7 @@ input::placeholder {
 .circle-box {
     z-index: 0;
     margin-top: 120px;
+
 }
 
 .circle {
@@ -510,6 +511,6 @@ input::placeholder {
     min-width: 0;
 }
 
-.form-control {
+.input-group.input-group-outline .form-control {
     color: #000000 !important;
 }

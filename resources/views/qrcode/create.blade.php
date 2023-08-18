@@ -22,7 +22,7 @@
                                     <div class="input-group input-group-outline my-3">
                                         <label class="form-label">ชื่อ</label>
                                         <input type="text" class="form-control  @error('name') is-invalid @enderror"
-                                            name="name" required>
+                                            name="name">
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
