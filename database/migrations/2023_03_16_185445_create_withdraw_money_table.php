@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('id_user')->nullable();
             $table->integer('point_low')->nullable();
+            $table->string('withdrawal_bank')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

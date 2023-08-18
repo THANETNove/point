@@ -33,6 +33,19 @@
                         <br>
                         <div class="box-row">
                             <div class="customer-div-home col-12">
+                                <p class="text-name-home">เลือกบัญชี:</p>
+                                <select class="form-select" name="withdrawal_bank" aria-label="Default select example">
+                                    @foreach ($data as $data1)
+                                        <option value="{{ $data1->bank . '  ' . $data1->bank_numbar_user }}">
+                                            {{ $data1->bank }}&nbsp; &nbsp;
+                                            {{ $data1->bank_numbar_user }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="customer-div-home col-12">
                                 <p class="text-name-home">จำนวนเงิน:</p>
                                 <input type="number" class="form-control  @error('point') is-invalid @enderror"
                                     name="point" placeholder="จำนวนเงิน" required>
@@ -46,7 +59,7 @@
                     </div>
                     <div class="hr3"></div>
                     <br>
-                    @if (Auth::user()->ststus_point == 'on')
+                    @if (Auth::user()->ststus_point == 'on' || $data)
                         <samp class="button">ยังไม่สามารถถอนเงินได้</samp>
                     @else
                         <button type="submit" class="button">ถอนเงิน</button>

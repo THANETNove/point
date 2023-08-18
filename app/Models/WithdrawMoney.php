@@ -11,6 +11,7 @@ class WithdrawMoney extends Model
     protected $fillable = [
         'id_user',
         'point_low',
+        'withdrawal_bank',
         'status',
     ];
 }

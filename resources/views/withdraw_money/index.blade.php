@@ -34,6 +34,8 @@
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
                                     จำนวนเงิน</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                    บัญชี</th>
 
 
                                 <th
@@ -46,44 +48,49 @@
                         </thead>
                         <tbody>
                             @php
-                            $i = 1;
+                                $i = 1;
                             @endphp
                             @if ($data !== null)
-                            @foreach ($data as $data1)
-                            <tr>
-                                <td>
-                                    <p>{{ $i++ }}</p>
-                                </td>
-                                <td>
-                                    <p class="text-xs data1-weight-bold mb-0">
-                                        {{ number_format($data1->point_low) }}
-                                    </p>
-                                </td>
+                                @foreach ($data as $data1)
+                                    <tr>
+                                        <td>
+                                            <p>{{ $i++ }}</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs data1-weight-bold mb-0">
+                                                {{ number_format($data1->point_low) }}
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs data1-weight-bold mb-0">
+                                                {{ $data1->withdrawal_bank }}
+                                            </p>
+                                        </td>
 
-                                <td class="align-middle text-center">
-                                    @if ($data1->status == 'approved')
-                                    <span class="success-text">ถอนเงินสำเร็จ
-                                        โอนเงินเข้าบัญชีเรียบร้อย</span>
-                                    @elseif($data1->status == 'reject')
-                                    <span class="danger-text">ถอนเงิน
-                                        ไม่สำเร็จ</span>
-                                    @else
-                                    <span class="secondary-text">รอการตรวจสอบ</span>
-                                    @endif
-                                </td>
-                                <td class="align-middle text-center">
-                                    <span
-                                        class="text-secondary text-xs font-weight-bold">{{ $data1->created_at }}</span>
-                                </td>
+                                        <td class="align-middle text-center">
+                                            @if ($data1->status == 'approved')
+                                                <span class="success-text">ถอนเงินสำเร็จ
+                                                    โอนเงินเข้าบัญชีเรียบร้อย</span>
+                                            @elseif($data1->status == 'reject')
+                                                <span class="danger-text">ถอนเงิน
+                                                    ไม่สำเร็จ</span>
+                                            @else
+                                                <span class="secondary-text">รอการตรวจสอบ</span>
+                                            @endif
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span
+                                                class="text-secondary text-xs font-weight-bold">{{ $data1->created_at }}</span>
+                                        </td>
 
-                            </tr>
-                            @endforeach
+                                    </tr>
+                                @endforeach
                             @endif
                         </tbody>
                     </table>
                 </div>
-                @if($data)
-                {!! $data->links() !!}
+                @if ($data)
+                    {!! $data->links() !!}
                 @endif
             </div>
         </div>

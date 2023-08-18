@@ -83,7 +83,9 @@ class WithdrawMoneyController extends Controller
      */
     public function create()
     {
-        return view('withdraw_money.create');
+        $data = DB::table('bank_name_users')->where('iduser',  Auth::user()->id)->get();
+
+        return view('withdraw_money.create', ['data' => $data]);
     }
 
     /**
@@ -105,6 +107,7 @@ class WithdrawMoneyController extends Controller
         $member = new WithdrawMoney;
         $member->id_user = Auth::user()->id;
         $member->point_low = $pointInput;
+        $member->withdrawal_bank = $request['withdrawal_bank'];
         $member->status = 'null';
 
         $member->save();
