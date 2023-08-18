@@ -25,57 +25,75 @@
     <div class="box-home-logout">
         <div class="box-register1">
             <div class="col-10 col-md-10">
-                <form role="form" class="text-start" method="POST" action="{{ 'add-bank_name_user' }}">
-                    @csrf
-                    <div class="customer-box">
-                        <br>
-                        <br>
-                        <div class="box-row">
-                            <div class="customer-div-home col-12">
-                                <p class="text-name-home">ชื่อบัญชื่:</p>
-                                <input type="text" class="form-control  @error('bank_user') is-invalid @enderror"
-                                    name="bank_user" placeholder="ชื่อบัญชื่" required>
-                            </div>
-                            @error('bank_user')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="hr3"></div>
-                        <br>
-                        <div class="box-row">
-                            <div class="customer-div-home col-12">
-                                <p class="text-name-home">หมายเลขบัญชี:</p>
-                                <input type="text"
-                                    class="form-control  @error('bank_numbar_user') is-invalid @enderror"
-                                    name="bank_numbar_user" placeholder="หมายเลขบัญชี" required>
-                            </div>
-                            @error('bank_numbar_user')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="hr3"></div>
-                        <br>
-                        <div class="box-row">
-                            <div class="customer-div-home col-12">
-                                <p class="text-name-home">ธนาคาร:</p>
-                                <input type="text" class="form-control  @error('bank') is-invalid @enderror"
-                                    name="bank" placeholder="ธนาคาร" required>
-                            </div>
-                            @error('bank')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="hr3"></div>
-                        <br>
-                        <button type="submit" class="button">ผูกบัญชี</button>
-                    </div>
-                </form>
+                <div class="col-3 mb-5">
+                    <a href="{{ url('/bind-account') }}" class="button-home1">ผูกบัญชี</a>
+                    @if (session('message'))
+                        <p class=" mt-3" style="color: green; font-size: 18px"> {{ session('message') }}</p>
+                    @endif
+                    @if (session('messageDate'))
+                        <p class="danger-text mt-3" style=" font-size: 18px"> {{ session('messageDate') }}</p>
+                    @endif
+
+                </div>
+                <table class="table align-items-center mb-0 text-center ">
+                    <thead>
+                        <tr>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-1 ">
+                                ลำดับ
+                            </th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                ชื่อ</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                เลขบัญชี</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                ธนาคาร/อื่นๆ</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                edit</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                Date</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php
+                            $i = 1;
+                        @endphp
+                        @foreach ($data as $bank)
+                            <tr>
+                                <td>
+                                    <p>{{ $i++ }}</p>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{ $bank->bank_user }}</p>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <span
+                                        class="text-secondary text-xs font-weight-bold">{{ $bank->bank_numbar_user }}</span>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <span class="text-secondary text-xs font-weight-bold">{{ $bank->bank }}</span>
+                                </td>
+                                <td class="align-middle">
+                                    <a href="{{ url('/edit-account', $bank->id) }}"
+                                        class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
+                                        data-original-title="Edit user">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td class="align-middle">
+                                    <a onClick="javascript:return confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ! ');"
+                                        href="{{ url('/delete-account', $bank->id) }}"
+                                        class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
+                                        data-original-title="delete user">
+                                        delete
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

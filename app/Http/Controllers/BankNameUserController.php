@@ -11,7 +11,7 @@ use Auth;
 
 class BankNameUserController extends Controller
 {
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -26,16 +26,20 @@ class BankNameUserController extends Controller
      */
     public function index()
     {
-        $menus = DB::table('bank_name_users')->where('iduser', Auth::user()->id)->count();
-       
+        /* $menus = DB::table('bank_name_users')->where('iduser', Auth::user()->id)->count();
+
         if ($menus) {
             $data = DB::table('bank_name_users')->where('iduser', Auth::user()->id)->get();
-         /*    $data = Address::find(Auth::user()->id); */
+
             return view('bank_nam_user.edit', ['data' => $data]);
 
         }else{
             return view('bank_nam_user.index');
-        }
+        }*/
+        $data = DB::table('bank_name_users')->where('iduser', Auth::user()->id)->get();
+
+
+        return view('bank_nam_user.index', ['data' => $data]);
     }
 
     /**
@@ -43,7 +47,7 @@ class BankNameUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('bank_nam_user.create');
     }
 
     /**
@@ -57,8 +61,7 @@ class BankNameUserController extends Controller
         $member->bank_numbar_user = $request['bank_numbar_user'];
         $member->bank = $request['bank'];
         $member->save();
-        return redirect('bank_name_user')->with('message', "บันทึกสำเร็จ" );
-        
+        return redirect('bank_name_user')->with('message', "บันทึกสำเร็จ");
     }
 
     /**
@@ -66,7 +69,7 @@ class BankNameUserController extends Controller
      */
     public function show(string $id)
     {
-/*         $table->string('id_user')->nullable();
+        /*         $table->string('id_user')->nullable();
         $table->string('bank_user')->nullable();
         $table->string('bank_numbar_user')->nullable();
         $table->string('bank')->nullable(); */
@@ -77,7 +80,9 @@ class BankNameUserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data =  BankNameUser::find($id);
+
+        return view('bank_nam_user.edit', compact('data'));
     }
 
     /**
@@ -90,7 +95,7 @@ class BankNameUserController extends Controller
         $member->bank_numbar_user = $request['bank_numbar_user'];
         $member->bank = $request['bank'];
         $member->save();
-        return redirect('bank_name_user')->with('message', "เเก้ไข สำเร็จ" );
+        return redirect('bank_name_user')->with('message', "เเก้ไข สำเร็จ");
     }
 
     /**
@@ -98,6 +103,8 @@ class BankNameUserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $flight = BankNameUser::find($id);
+        $flight->delete();
+        return redirect('bank_name_user')->with('messageDate', "ลบข้อมูลสำเร็จ");
     }
 }

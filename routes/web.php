@@ -79,10 +79,12 @@ Route::put('/update-withdraw_money/{id}', [WithdrawMoneyController::class, 'upda
 
 
 Route::get('/bank_name_user', [BankNameUserController::class, 'index']);
+Route::get('/bind-account', [BankNameUserController::class, 'create']);
+Route::get('/edit-account/{id}', [BankNameUserController::class, 'edit']);
 Route::post('/add-bank_name_user', [BankNameUserController::class, 'store']);
-Route::put('/update-bank_name_user/{id}', [BankNameUserController::class, 'update']);
-Route::put('/update-bank_name_user/{id}', [BankNameUserController::class, 'update']);
-Route::put('/update-bank_name_user/{id}', [BankNameUserController::class, 'update']);
+Route::put('/update-bank_name_user/{id}', [BankNameUserController::class, 'update'])->name('update-bank_name_user');
+Route::get('/delete-account/{id}', [BankNameUserController::class, 'destroy'])->name('update-bank_name_user');
+
 
 Route::get('/all-user', [AllUsersController::class, 'index']);
 Route::post('/all-user', [AllUsersController::class, 'index']);

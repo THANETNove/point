@@ -85,6 +85,6 @@ class BankNameController extends Controller
     {
         $flight = BankName::find($id);
         $flight->delete();
-        return redirect('bank_name')->with('message', "ลบข้อมูลสำเร็จ");
+        return redirect('bank_name_user')->with('message', "ลบข้อมูลสำเร็จ");
     }
 }
