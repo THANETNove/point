@@ -14,7 +14,7 @@
                         <div class="col">
 
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12 col-lg-6">
                             <div class="card-body">
                                 <form role="form" class="text-start" method="POST" action="{{ 'add-bank_name' }}">
                                     @csrf
@@ -23,6 +23,17 @@
                                         <input type="text" class="form-control  @error('bank_name') is-invalid @enderror"
                                             name="bank_name" required>
                                         @error('bank_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="input-group input-group-outline my-3">
+                                        <label class="form-label">เลขบัญชี ธนาคาร</label>
+                                        <input type="text"
+                                            class="form-control   @error('bank_code') is-invalid @enderror" name="bank_code"
+                                            required>
+                                        @error('bank_code')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

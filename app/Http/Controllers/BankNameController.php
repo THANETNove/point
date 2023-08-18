@@ -10,7 +10,7 @@ use Auth;
 
 class BankNameController extends Controller
 {
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -27,7 +27,7 @@ class BankNameController extends Controller
     {
 
         $data = DB::table('bank_names')->get();
-        return view('bank_name.index',['data' => $data]);
+        return view('bank_name.index', ['data' => $data]);
     }
 
     /**
@@ -47,10 +47,11 @@ class BankNameController extends Controller
 
         $member = new BankName;
         $member->bank_name = $request['bank_name'];
-   
+        $member->bank_code = $request['bank_code'];
+
         $member->save();
 
-        return redirect('bank_name')->with('message', "บันทึกสำเร็จ" );
+        return redirect('bank_name')->with('message', "บันทึกสำเร็จ");
     }
 
     /**
@@ -84,6 +85,6 @@ class BankNameController extends Controller
     {
         $flight = BankName::find($id);
         $flight->delete();
-        return redirect('bank_name')->with('message', "ลบข้อมูลสำเร็จ" );
+        return redirect('bank_name')->with('message', "ลบข้อมูลสำเร็จ");
     }
 }

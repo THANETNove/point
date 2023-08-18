@@ -9,6 +9,7 @@ class BankName extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'bank_name'
+        'bank_name',
+        'bank_code'
     ];
 }

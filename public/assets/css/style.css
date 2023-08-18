@@ -500,3 +500,16 @@ input::placeholder {
 .customer-point input::placeholder {
     color: rgba(144, 144, 144, 0.451) !important;
 }
+
+.input-group>.form-control,
+.input-group>.form-select,
+.input-group>.form-floating {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+}
+
+.form-control {
+    color: #000000 !important;
+}
