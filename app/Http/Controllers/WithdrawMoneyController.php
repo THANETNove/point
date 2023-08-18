@@ -12,7 +12,7 @@ use Auth;
 
 class WithdrawMoneyController extends Controller
 {
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -25,29 +25,29 @@ class WithdrawMoneyController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()  {
-/*        dd("asdas"); */
+    public function index()
+    {
+        /*        dd("asdas"); */
         $data = DB::table('withdraw_money')->where('id_user', Auth::user()->id)->count();
 
         if ($data) {
             $data = DB::table('withdraw_money')->where('withdraw_money.id_user', Auth::user()->id)
-           /*  ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
+                /*  ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
              ->select('withdraw_money.*', 'bank_name_users.id_user', 'bank_name_users.bank_user','bank_name_users.bank_numbar_user') */
-            ->orderBy('withdraw_money.id','DESC')->paginate(100);
+                ->orderBy('withdraw_money.id', 'DESC')->paginate(100);
 
-          //  dd($data );
-            return view('withdraw_money.index',['data' => $data]);
-        }else {
+            //  dd($data );
+            return view('withdraw_money.index', ['data' => $data]);
+        } else {
             $data2 = null;
-            return view('withdraw_money.index',['data' => $data2]);
+            return view('withdraw_money.index', ['data' => $data2]);
         }
-
-}
-
+    }
 
 
 
-/*     {
+
+    /*     {
         $data = DB::table('withdraw_money')->where('id_user', Auth::user()->id)->get();
         return view('withdraw_money.index' ,['data' =>$data]);
     }
@@ -58,21 +58,21 @@ class WithdrawMoneyController extends Controller
         $search = $request['search'];
         if ($search != null) {
             $data = DB::table('withdraw_money')->where('withdraw_money.status', 'null')
-            ->leftJoin('users', 'withdraw_money.id_user', '=', 'users.id')
-            ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
-            ->select('withdraw_money.*', 'users.username','users.point','bank_name_users.bank_user','bank_name_users.bank_numbar_user','bank_name_users.bank')
-            ->where('username', 'like', "$search%")
-            ->paginate(100);
-            return view('withdraw_money_admin.index' ,['data' =>$data]);
-        }else{
-            if (Auth::user()->status == "admin" ) {
-            $data = DB::table('withdraw_money')->where('withdraw_money.status', 'null')
-            ->leftJoin('users', 'withdraw_money.id_user', '=', 'users.id')
-            ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
-            ->select('withdraw_money.*', 'users.username','users.point','bank_name_users.bank_user','bank_name_users.bank_numbar_user','bank_name_users.bank')
-            ->paginate(100);
-            return view('withdraw_money_admin.index' ,['data' =>$data]);
-            }else {
+                ->leftJoin('users', 'withdraw_money.id_user', '=', 'users.id')
+                ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
+                ->select('withdraw_money.*', 'users.username', 'users.point', 'bank_name_users.bank_user', 'bank_name_users.bank_numbar_user', 'bank_name_users.bank')
+                ->where('username', 'like', "$search%")
+                ->paginate(100);
+            return view('withdraw_money_admin.index', ['data' => $data]);
+        } else {
+            if (Auth::user()->status == "admin") {
+                $data = DB::table('withdraw_money')->where('withdraw_money.status', 'null')
+                    ->leftJoin('users', 'withdraw_money.id_user', '=', 'users.id')
+                    ->leftJoin('bank_name_users', 'withdraw_money.id_user', '=', 'bank_name_users.iduser')
+                    ->select('withdraw_money.*', 'users.username', 'users.point', 'bank_name_users.bank_user', 'bank_name_users.bank_numbar_user', 'bank_name_users.bank')
+                    ->paginate(100);
+                return view('withdraw_money_admin.index', ['data' => $data]);
+            } else {
                 return view('home');
             }
         }
@@ -96,22 +96,20 @@ class WithdrawMoneyController extends Controller
         $pointInput =  intval($request['point']);
 
 
-if ($pointInput >= $pointUser) {
+        if ($pointInput >= $pointUser) {
 
 
-        return redirect('create_withdraw_money')->with('error', "กรุณาตรวจสอบยอดเงิน ยอดเงินของคุณไม่เพียงพอ" );
-
-   
-}
+            return redirect('create_withdraw_money')->with('error', "กรุณาตรวจสอบยอดเงิน ยอดเงินของคุณไม่เพียงพอ");
+        }
 
         $member = new WithdrawMoney;
-        $member->id_user =Auth::user()->id;
+        $member->id_user = Auth::user()->id;
         $member->point_low = $pointInput;
         $member->status = 'null';
 
-         $member->save();
+        $member->save();
 
-         return redirect('withdraw_money_customers')->with('message', "บันทึกสำเร็จ" );
+        return redirect('withdraw_money_customers')->with('message', "บันทึกสำเร็จ");
     }
 
     /**
@@ -139,23 +137,23 @@ if ($pointInput >= $pointUser) {
 
         $member = WithdrawMoney::find($id);
         $member->status = $request['app_rej'];
-      
+
         $member->save();
-        
+
         if ($request['app_rej'] == 'approved') {
             $user = User::find($member->id_user);
             $ponit =  $user->point - (int)$request['add_point'];
             $user->point =  $ponit;
             $user->save();
         }
-    
+
         if ($request['app_rej'] == 'approved') {
             $data = 'เติมเงินสำเร็จ';
-        }else{
+        } else {
             $data = 'Reject สำเร็จ';
         }
 
-        return redirect('admin-withdraw_money')->with('message', $data );
+        return redirect('admin-withdraw_money')->with('message', $data);
     }
 
     /**
