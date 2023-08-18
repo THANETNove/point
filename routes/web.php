@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\AddressController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\MoneyCustomersController;
 use App\Http\Controllers\WithdrawMoneyController;
 use App\Http\Controllers\BankNameUserController;
 use App\Http\Controllers\AllUsersController;
+use App\Http\Controllers\QrcodeController;
 
 
 /*
@@ -36,14 +38,14 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/address', [AddressController::class, 'index']);
-Route::post('/add-address',[ AddressController::class,'store']);
-Route::put('update-address/{id}',[ AddressController::class,'update']);
+Route::post('/add-address', [AddressController::class, 'store']);
+Route::put('update-address/{id}', [AddressController::class, 'update']);
 
 Route::get('/car_brand', [CarBrandController::class, 'index']);
 Route::get('/add-car_brand', [CarBrandController::class, 'create']);
 Route::get('/edit-car_brand/{id}', [CarBrandController::class, 'edit']);
 Route::post('/add-car_brand_name', [CarBrandController::class, 'store']);
-Route::put('update-car_brand_name/{id}',[ CarBrandController::class,'update']);
+Route::put('update-car_brand_name/{id}', [CarBrandController::class, 'update']);
 Route::get('/delete-car_brand/{id}', [CarBrandController::class, 'destroy']);
 
 
@@ -91,3 +93,7 @@ Route::get('/bonus', [AllUsersController::class, 'bonus']);
 Route::post('/bonus', [AllUsersController::class, 'bonus']);
 Route::get('/edit-bonus/{id}', [AllUsersController::class, 'show']);
 Route::get('/delete-bonus/{id}', [AllUsersController::class, 'edit']);
+Route::get('/qrcode', [QrcodeController::class, 'index']);
+Route::get('/add-qrcode', [QrcodeController::class, 'create']);
+Route::post('/new-qrcode', [QrcodeController::class, 'store']);
+Route::get('/delete-qr/{id}', [QrcodeController::class, 'destroy']);

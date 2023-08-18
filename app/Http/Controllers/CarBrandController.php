@@ -10,7 +10,7 @@ use Auth;
 
 class CarBrandController extends Controller
 {
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -26,11 +26,11 @@ class CarBrandController extends Controller
     public function index()
     {
         $data = DB::table('car_brands')
-        ->orderBy('id','DESC')
-        ->get();
-       
+            ->orderBy('id', 'DESC')
+            ->get();
 
-        return view('car_brand.index',['data' => $data]);
+
+        return view('car_brand.index', ['data' => $data]);
     }
 
     /**
@@ -52,7 +52,7 @@ class CarBrandController extends Controller
         $member->car_brands_name = $request['car_name'];
         $member->save();
 
-        return redirect('car_brand')->with('message', "บันทึกสำเร็จ" );
+        return redirect('car_brand')->with('message', "บันทึกสำเร็จ");
     }
 
     /**
@@ -70,7 +70,7 @@ class CarBrandController extends Controller
     {
         $data =  CarBrand::find($id);
 
-        return view('car_brand.edit',['data' => $data]);
+        return view('car_brand.edit', ['data' => $data]);
     }
 
     /**
@@ -83,7 +83,7 @@ class CarBrandController extends Controller
         $member->car_brands_name = $request['car_name'];
         $member->save();
 
-        return redirect('car_brand')->with('message', "เเก้ไขสำเร็จ" );
+        return redirect('car_brand')->with('message', "เเก้ไขสำเร็จ");
     }
 
     /**
@@ -93,19 +93,18 @@ class CarBrandController extends Controller
     {
         //
 
-     
+
 
         $data = DB::table('car_models')
-        ->where('id_car_name', $id)
-        ->get();
-        foreach( $data as $val) {
+            ->where('id_car_name', $id)
+            ->get();
+        foreach ($data as $val) {
             $flight = CarModel::find($val->id);
             $flight->delete();
         }
 
         $flight = CarBrand::find($id);
         $flight->delete();
-        return redirect('car_brand')->with('message', "ลบข้อมูลสำเร็จ" );
-        
+        return redirect('car_brand')->with('message', "ลบข้อมูลสำเร็จ");
     }
 }
