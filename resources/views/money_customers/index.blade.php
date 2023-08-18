@@ -21,12 +21,12 @@
                                         ชื่อ</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
                                         จำนวนเงิน</th>
-                                    <th
+                                    {{--   <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         ว/ด/ป สลิป</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        ธนาคาร</th>
+                                        ธนาคาร</th> --}}
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         รูปภาพ</th>
@@ -53,13 +53,13 @@
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0">{{ number_format($data1->point) }}</p>
                                         </td>
-                                        <td class="align-middle text-center">
+                                        {{--  <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $data1->date }}</span>
                                         </td>
                                         <td class="align-middle text-center">
                                             <span
                                                 class="text-secondary text-xs font-weight-bold">{{ $data1->point_bank_name }}</span>
-                                        </td>
+                                        </td> --}}
                                         <td class="align-middle text-center">
                                             <img id="myImg{{ $data1->id }}"
                                                 src="{{ URL::asset('/img/slip/' . '' . $data1->images) }}"
