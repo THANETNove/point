@@ -28,7 +28,7 @@
                     <div class="box-row">
                         <div class="customer-div-home">
                             <i class="fa fa-user icon-home" style="font-size: 20px"></i>
-                            <a href="https://line.me/R/ti/p/@408luqmt" target="_blank" class="a-text a-color"
+                            <a href="https://line.me/ti/p/P7YmAJ6o-5" target="_blank" class="a-text a-color"
                                 rel="noopener noreferrer">
                                 <p style="customer-home">ฝ่ายบริการลูกค้า</p>
                             </a>
